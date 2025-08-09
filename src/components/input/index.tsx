@@ -9,13 +9,11 @@ export function Input(){
   const router = useRouter();
 
   function handleSearch(event: FormEvent){
+      event.preventDefault();
 
-    if(input === ''){
-      alert("Campo obrigatório. Por favor, preencha o campo.")
-      return
-    }else{
+    if(input === '') return;
+
       router.push(`/game/search/${input}`)
-    }
   }
 
   return(
