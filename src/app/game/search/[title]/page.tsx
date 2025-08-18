@@ -1,11 +1,12 @@
 import { GameProps } from "@/utils/types/games";
-import { Container } from "@/components/container"
+import { Container } from "@/components/container";
 import { Input } from "@/components/input";
 import { GameCard } from "@/components/GameCard";
 
 async function getGames(title: string){
   try{
-    const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&title=${title}`)
+    const decodeTitle = decodeURI(title)
+    const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&title=${decodeTitle}`)
       return res.json();
     }catch(err){
       return null
