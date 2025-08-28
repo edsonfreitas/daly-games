@@ -72,7 +72,7 @@ async function getGameSorted(){
 
 
 
-export default async function Game({ params }: PropsParams)){
+export default async function Game({ params }: PropsParams){
   const { id } =  params;
   const data: GameProps = await getData(id);
   const sortedGame: GameProps = await getGameSorted();
